@@ -1,0 +1,30 @@
+# =====================================================================
+# 外层仓库只跟踪我自己写的脚本/文档/配置。
+# FunClip 与 MoneyPrinterTurbo 是上游 clone（各自带 .git 历史），
+# Fooocus 是上游源码，均不入库；只放行我写的启动脚本与说明。
+# =====================================================================
+
+# ---- 上游项目本体 ----
+FunClip/*
+!FunClip/启动FunClip.bat
+!FunClip/关闭FunClip.bat
+!FunClip/使用说明.md
+!FunClip/制作测试素材.py
+!FunClip/批量切片.py
+
+MoneyPrinterTurbo/*
+!MoneyPrinterTurbo/启动AI短视频工厂.bat
+!MoneyPrinterTurbo/关闭AI短视频工厂.bat
+!MoneyPrinterTurbo/使用说明.md
+!MoneyPrinterTurbo/测试批量出片.py
+!MoneyPrinterTurbo/测试文档.md
+
+# Fooocus 上游源码与运行产物；只跟踪工厂层的脚本
+AI绘画工厂/Fooocus/
+AI绘画工厂/批量运行日志.txt
+
+# 运行产物与测试产物
+测试/
+*.log
+__pycache__/
+.workbuddy-ai/
