@@ -11,9 +11,12 @@ AI绘画工厂 · 批量出图脚本（无需打开网页，进程内直接驱�
 
 注意：首次运行会先下载/加载模型（数分钟），之后每次只需几十秒。
 """
+import faulthandler
 import os
 import sys
 import time
+
+faulthandler.enable()
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 FOOOCUS = os.path.join(ROOT, "Fooocus")
@@ -22,9 +25,52 @@ sys.path.insert(0, FOOOCUS)
 os.environ.setdefault("HF_MIRROR", "https://hf-mirror.com")
 os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
 
-PROMPTS_FILE = os.path.join(ROOT, "批量提示词.txt")
+# 可选第一个参数：提示词文件路径（接口服务按任务传入；默认用 批量提示词.txt）
+PROMPTS_FILE = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "批量提示词.txt")
+# Fooocus 的 args_manager 会在 import 时解析 sys.argv，自己用完的参数必须先清掉，
+# 否则被当成未知参数直接 exit 2
+sys.argv = [sys.argv[0]]
 DEFAULT_COUNT = 1
 DEFAULT_RATIO = "1152*896"
+OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+OLLAMA_MODEL = "qwen2.5:3b"
+TRANSLATE_SYSTEM = ("You are a translator for Stable Diffusion prompts. Translate the user's Chinese "
+                    "description into English art prompts. EVERY word must be English - Chinese characters "
+                    "are FORBIDDEN in the output. Keep all details, optionally append quality tags like "
+                    "masterpiece, best quality. Output ONLY the English translation.")
+
+
+def _has_chinese(s):
+    return any("\u4e00" <= c <= "\u9fff" for c in s)
+
+
+def translate_to_english(text):
+    """中文提示词 → 英文（本地 Ollama 大模型）；失败则原样返回。"""
+    if all(ord(c) < 128 for c in text):  # 纯英文无需翻译
+        return text
+    import json as _json
+    import urllib.request
+    content = ""
+    for attempt in range(2):
+        try:
+            sys_prompt = TRANSLATE_SYSTEM if attempt == 0 else TRANSLATE_SYSTEM + " LAST WARNING: output pure English only!"
+            req = urllib.request.Request(OLLAMA_URL, data=_json.dumps({
+                "model": OLLAMA_MODEL, "stream": False,
+                "messages": [{"role": "system", "content": sys_prompt},
+                             {"role": "user", "content": text}],
+            }).encode("utf-8"), headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                content = _json.loads(resp.read())["message"]["content"].strip()
+            if content and not _has_chinese(content):
+                print(f"    译: {content}")
+                return content
+        except Exception as e:
+            print(f"    翻译出错({e})")
+    if content:
+        print(f"    译(含中文兜底): {content}")
+        return content
+    print("    翻译失败，使用原文")
+    return text
 
 
 def parse_prompts(path):
@@ -78,7 +124,7 @@ def build_args(prompt, count, ratio):
     args.append(config.default_prompt_negative)          # negative_prompt
     args.append(list(config.default_styles))             # style_selections
     args.append(config.default_performance)              # performance_selection
-    args.append(ratio)                                   # aspect_ratios_selection
+    args.append(ratio.replace("*", "×"))                 # aspect_ratios_selection（handler 按 × 分隔解析）
     args.append(count)                                   # image_number
     args.append(config.default_output_format)            # output_format
     args.append(-1)                                      # seed (随机)
@@ -123,7 +169,7 @@ def build_args(prompt, count, ratio):
     args.append(False)                                   # skipping_cn_preprocessor
     args.append(64)                                      # canny_low_threshold
     args.append(128)                                     # canny_high_threshold
-    args.append("Joint")                                 # refiner_swap_method
+    args.append("joint")                                 # refiner_swap_method
     args.append(0.25)                                    # controlnet_softness
     args.append(False)                                   # freeu_enabled
     args.extend([1.01, 1.02, 1.0, 1.0])                  # freeu b1 b2 s1 s2
@@ -180,6 +226,7 @@ def main():
     all_results = []
     for prompt, count, ratio in tasks:
         print(f"\n>>> 生成：{prompt} × {count} @ {ratio}")
+        prompt = translate_to_english(prompt)
         t0 = time.time()
         task = worker.AsyncTask(args=build_args(prompt, count, ratio))
         worker.async_tasks.append(task)
