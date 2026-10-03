@@ -1,0 +1,84 @@
+{
+    "script": "你知道吗？下午三点犯困不是因为你没睡够，而是人体的生物钟在作怪。第一，午餐后血糖升高，胰岛素分泌增加，会让大脑感到疲倦。第二，皮质醇水平在下午自然下降，警觉性跟着降低。第三，连续工作几小时后，大脑的腺苷积累让人昏昏欲睡。起身活动五分钟，喝杯水，远眺窗外，就能有效缓解。记住这三点，下午也能元气满满。",
+    "search_terms": "",
+    "params": {
+        "video_subject": "打工人为什么一到下午三点就犯困？3个提神冷知识",
+        "video_script": "你知道吗？下午三点犯困不是因为你没睡够，而是人体的生物钟在作怪。第一，午餐后血糖升高，胰岛素分泌增加，会让大脑感到疲倦。第二，皮质醇水平在下午自然下降，警觉性跟着降低。第三，连续工作几小时后，大脑的腺苷积累让人昏昏欲睡。起身活动五分钟，喝杯水，远眺窗外，就能有效缓解。记住这三点，下午也能元气满满。",
+        "video_terms": null,
+        "video_aspect": "9:16",
+        "video_fit_mode": "cover",
+        "video_concat_mode": "random",
+        "video_transition_mode": null,
+        "video_clip_duration": 3,
+        "video_clip_speed": 1.0,
+        "match_materials_to_script": false,
+        "video_count": 2,
+        "video_source": "local",
+        "video_materials": [
+            {
+                "provider": "local",
+                "url": "G:\\xmgousi\\获取项目\\短视频从零生成\\storage\\local_videos\\素材A.mp4",
+                "duration": 0,
+                "source_info": null
+            },
+            {
+                "provider": "local",
+                "url": "G:\\xmgousi\\获取项目\\短视频从零生成\\storage\\local_videos\\素材B.mp4",
+                "duration": 0,
+                "source_info": null
+            },
+            {
+                "provider": "local",
+                "url": "G:\\xmgousi\\获取项目\\短视频从零生成\\storage\\local_videos\\素材C.mp4",
+                "duration": 0,
+                "source_info": null
+            }
+        ],
+        "custom_audio_file": null,
+        "video_language": "zh-CN",
+        "voice_name": "zh-CN-XiaoxiaoNeural-Female",
+        "voice_volume": 1.0,
+        "voice_rate": 1.0,
+        "bgm_type": "random",
+        "bgm_file": "",
+        "bgm_volume": 0.2,
+        "video_music_prompt": "",
+        "sonilo_bgm_prompt": "",
+        "subtitle_enabled": true,
+        "subtitle_position": "bottom",
+        "subtitle_display_mode": "sentence",
+        "subtitle_animation": "none",
+        "custom_position": 70.0,
+        "font_name": "MicrosoftYaHeiBold.ttc",
+        "text_fore_color": "#FFFFFF",
+        "text_background_color": false,
+        "rounded_subtitle_background": false,
+        "font_size": 60,
+        "stroke_color": "#000000",
+        "stroke_width": 1.5,
+        "n_threads": 2,
+        "paragraph_number": 1,
+        "video_script_prompt": "",
+        "custom_system_prompt": ""
+    },
+    "material_selections": [
+        {
+            "video_index": 1,
+            "local_files": [
+                "素材C.mp4",
+                "素材B.mp4",
+                "素材A.mp4",
+                "素材A.mp4",
+                "素材B.mp4",
+                "素材C.mp4",
+                "素材B.mp4",
+                "素材C.mp4",
+                "素材C.mp4",
+                "素材B.mp4",
+                "素材A.mp4",
+                "素材A.mp4"
+            ],
+            "reused_files": []
+        }
+    ]
+}

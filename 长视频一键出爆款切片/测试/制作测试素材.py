@@ -28,7 +28,9 @@ VIDEOS = {
 }
 
 VOICE = "zh-CN-YunxiNeural"
-OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_videos")
+# 素材统一放项目根目录的 test_videos/（批量切片.py 从那里取视频）
+OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "..", "test_videos")
 
 
 def tts(text, path):

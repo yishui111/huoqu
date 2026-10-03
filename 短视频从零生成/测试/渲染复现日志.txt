@@ -1,0 +1,7 @@
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./测试/单独渲染测试.py:39":[34m main[0m - [1m开始单独渲染复现：final-repro.mp4[0m
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./app/services/video.py:1227":[34m generate_video[0m - [1mgenerating video: 1080 x 1920[0m
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./app/services/video.py:1228":[34m generate_video[0m - [1m  ① video: .\storage\tasks\aed0ac53-3681-4216-831f-779abc99f9c6\combined-1.mp4[0m
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./app/services/video.py:1229":[34m generate_video[0m - [1m  ② audio: .\storage\tasks\aed0ac53-3681-4216-831f-779abc99f9c6\audio.mp3[0m
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./app/services/video.py:1230":[34m generate_video[0m - [1m  ③ subtitle: .\storage\tasks\aed0ac53-3681-4216-831f-779abc99f9c6\subtitle.srt[0m
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./app/services/video.py:1231":[34m generate_video[0m - [1m  ④ output: .\测试\final-repro.mp4[0m
+[32m2026-10-03 00:31:46[0m | [1mINFO[0m | "./app/services/video.py:1251":[34m generate_video[0m - [1m  ⑤ font: G:/xmgousi/获取项目/短视频从零生成/resource/fonts/MicrosoftYaHeiBold.ttc[0m

@@ -1,0 +1,242 @@
+!!! debug wrapper argv = ['cli.py', '--video-subject', '打工人为什么一到下午三点就犯困？3个提神冷知识', '--video-script', '你知道吗？下午三点犯困不是因为你没睡够，而是人体的生物钟在作怪。第一，午餐后血糖升高，胰岛素分泌增加，会让大脑感到疲倦。第二，皮质醇水平在下午自然下降，警觉性跟着降低。第三，连续工作几小时后，大脑的腺苷积累让人昏昏欲睡。起身活动五分钟，喝杯水，远眺窗外，就能有效缓解。记住这三点，下午也能元气满满。', '--video-language', 'zh-CN', '--video-source', 'local', '--video-materials', 'storage/local_videos/素材A.mp4,storage/local_videos/素材B.mp4,storage/local_videos/素材C.mp4', '--video-aspect', '9:16', '--video-clip-duration', '3', '--video-count', '2', '--subtitle-enabled']
+[32m2026-10-02 01:54:07.206[0m | [1mINFO    [0m | [36mapp.config.config[0m:[36mload_config[0m:[36m471[0m - [1mload config from file: G:\xmgousi\获取项目\短视频从零生成/config.toml[0m
+[32m2026-10-02 01:54:07.227[0m | [1mINFO    [0m | [36mapp.config.config[0m:[36m<module>[0m:[36m592[0m - [1mMoneyPrinterTurbo v1.3.7[0m
+[32m2026-10-02 01:56:19[0m | [1mINFO[0m | "./cli.py:1740":[34m run_cli[0m - [1mstart CLI task: task_id=db0b949e-6c6a-4d4d-a371-ace10add3d6f, stop_at=video[0m
+[32m2026-10-02 01:56:19[0m | [1mINFO[0m | "./app/services/task.py:1387":[34m _run_pipeline[0m - [1mstart task: db0b949e-6c6a-4d4d-a371-ace10add3d6f, stop_at: video[0m
+[32m2026-10-02 01:56:20[0m | [1mINFO[0m | "./app/utils/utils.py:234":[34m check_ffmpeg_ready[0m - [1mffmpeg check passed, using: C:\Users\dapanji\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin\ffmpeg.EXE[0m
+[32m2026-10-02 01:56:20[0m | [1mINFO[0m | "./app/services/task.py:293":[34m generate_script[0m - [1m
+
+## generating video script[0m
+[32m2026-10-02 01:56:20[0m | [1mINFO[0m | "./app/services/task.py:503":[34m generate_audio[0m - [1m
+
+## generating audio[0m
+[32m2026-10-02 01:56:20[0m | [1mINFO[0m | "./app/services/task.py:531":[34m generate_audio[0m - [1mno custom audio file provided, using TTS to generate audio.[0m
+[32m2026-10-02 01:56:20[0m | [1mINFO[0m | "./app/services/voice.py:1328":[34m azure_tts_v1[0m - [1mstart, voice name: zh-CN-XiaoxiaoNeural, try: 1[0m
+[32m2026-10-02 01:56:28[0m | [1mINFO[0m | "./app/services/voice.py:1357":[34m azure_tts_v1[0m - [1mcompleted, output file: .\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\audio.mp3[0m
+[32m2026-10-02 01:56:29[0m | [1mINFO[0m | "./app/services/task.py:588":[34m generate_subtitle[0m - [1m
+
+## generating subtitle[0m
+[32m2026-10-02 01:56:29[0m | [1mINFO[0m | "./app/services/task.py:594":[34m generate_subtitle[0m - [1m
+
+## generating subtitle, provider: edge[0m
+[32m2026-10-02 01:56:29[0m | [1mINFO[0m | "./app/services/voice.py:2876":[34m _write_subtitle_items[0m - [1mcompleted, subtitle file created: .\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\subtitle.srt, duration: 33.4[0m
+[32m2026-10-02 01:56:29[0m | [1mINFO[0m | "./app/services/task.py:656":[34m get_video_materials[0m - [1m
+
+## preprocess local materials[0m
+[32m2026-10-02 01:56:30[0m | [1mINFO[0m | "./app/services/task.py:920":[34m generate_final_videos[0m - [1m
+
+## combining video: 1 => .\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\combined-1.mp4[0m
+[32m2026-10-02 01:56:30[0m | [1mINFO[0m | "./app/services/video.py:766":[34m combine_videos[0m - [1maudio duration: 33.98 seconds[0m
+[32m2026-10-02 01:56:30[0m | [1mINFO[0m | "./app/services/video.py:767":[34m combine_videos[0m - [1mmaximum clip duration: 3 seconds[0m
+[32m2026-10-02 01:56:30[0m | [1mINFO[0m | "./app/services/video.py:769":[34m combine_videos[0m - [1mrequired video duration: 34.08 seconds (audio duration + 0.10s safety margin)[0m
+[32m2026-10-02 01:56:31[0m | [1mINFO[0m | "./app/services/video.py:262":[34m _prioritize_unique_source_clips[0m - [1mprioritized unique video materials, sources: 3, primary clips: 3, fallback clips: 9[0m
+[32m2026-10-02 01:57:39[0m | [33m[1mWARNING[0m | "./app/services/video.py:369":[34m _disable_runtime_video_codec[0m - [33m[1mvideo codec h264_nvenc failed, fallback to libx264. reason: [0m
+[32m2026-10-02 01:57:42[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:57:49[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:57:55[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:57:56[0m | [31m[1mERROR[0m | "./app/services/video.py:932":[34m combine_videos[0m - [31m[1mfailed to process clip: Unable to allocate 5.93 MiB for an array with shape (1920, 1080, 3) and data type uint8[0m
+[32m2026-10-02 01:57:57[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:57:57[0m | [31m[1mERROR[0m | "./app/services/video.py:932":[34m combine_videos[0m - [31m[1mfailed to process clip: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file .\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f/temp-clip-9.mp4:
+
+ x264 [error]: malloc of size 11744448 failed
+[vost#0:0/libx264 @ 00000233cb137000] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 00000233cb138240] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 00000233cb138240] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 00000233cb138240] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 00000233cb137000] Could not open encoder before EOF
+[vost#0:0/libx264 @ 00000233cb137000] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 00000233cb137000] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 00000233cb125300] Nothing was written into output file, because at least one of its streams received no packets.
+[0m
+[32m2026-10-02 01:57:58[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:57:59[0m | [31m[1mERROR[0m | "./app/services/video.py:932":[34m combine_videos[0m - [31m[1mfailed to process clip: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file .\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f/temp-clip-10.mp4:
+
+ x264 [error]: malloc of size 11744448 failed
+[vost#0:0/libx264 @ 0000014aa3357080] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000014aa3358280] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000014aa3358280] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000014aa3358280] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000014aa3357080] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000014aa3357080] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000014aa3357080] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000014aa3341f00] Nothing was written into output file, because at least one of its streams received no packets.
+[0m
+[32m2026-10-02 01:57:59[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:58:00[0m | [31m[1mERROR[0m | "./app/services/video.py:932":[34m combine_videos[0m - [31m[1mfailed to process clip: [0m
+[32m2026-10-02 01:58:00[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:58:01[0m | [31m[1mERROR[0m | "./app/services/video.py:932":[34m combine_videos[0m - [31m[1mfailed to process clip: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file .\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f/temp-clip-12.mp4:
+
+ x264 [error]: malloc of size 5759552 failed
+[vost#0:0/libx264 @ 0000028215f27080] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000028215f28280] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000028215f28280] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000028215f28280] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000028215f27080] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000028215f27080] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000028215f27080] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000028215f11f00] Nothing was written into output file, because at least one of its streams received no packets.
+[0m
+[32m2026-10-02 01:58:01[0m | [33m[1mWARNING[0m | "./app/services/video.py:936":[34m combine_videos[0m - [33m[1mvideo duration (21.00s) is shorter than required duration (34.08s), looping clips to match audio length.[0m
+[32m2026-10-02 01:58:01[0m | [1mINFO[0m | "./app/services/video.py:946":[34m combine_videos[0m - [1mvideo duration: 36.00s, audio duration: 33.98s, required duration: 34.08s, looped 5 clips[0m
+[32m2026-10-02 01:58:01[0m | [1mINFO[0m | "./app/services/video.py:953":[34m combine_videos[0m - [1mstarting clip merging process[0m
+[32m2026-10-02 01:58:01[0m | [1mINFO[0m | "./app/services/video.py:959":[34m combine_videos[0m - [1mconcatenating 12 clips with ffmpeg[0m
+[32m2026-10-02 01:58:01[0m | [33m[1mWARNING[0m | "./app/services/video.py:348":[34m _get_effective_video_codec[0m - [33m[1mvideo codec h264_nvenc was disabled after a runtime failure, fallback to libx264[0m
+[32m2026-10-02 01:58:01[0m | [31m[1mERROR[0m | "./app/services/task.py:1733":[34m start[0m - [31m[1munexpected task pipeline failure, task_id: db0b949e-6c6a-4d4d-a371-ace10add3d6f, error: ffmpeg version 9.0-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.100 / 61.  1.100
+  libavcodec     63.  1.100 / 63.  1.100
+  libavformat    63.  1.100 / 63.  1.100
+  libavdevice    63.  1.100 / 63.  1.100
+  libavfilter    12.  1.100 / 12.  1.100
+  libswscale     10.  1.100 / 10.  1.100
+  libswresample   7.  1.100 /  7.  1.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000016b62be5240] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from '.\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\ffmpeg-concat-list.txt':
+  Duration: N/A, start: 0.000000, bitrate: 1240 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], 1240 kb/s, 30 fps, 30 tbr, 15360 tbn
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc61.19.100 h264_nvenc
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0000016b62bec640] using SAR=1/1
+[libx264 @ 0000016b62bec640] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000016b62bec640] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 0000016b62bec640] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '.\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\combined-1.mp4':
+  Metadata:
+    encoder         : Lavf63.1.100
+  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.100 libx264
+      handler_name    : VideoHandler
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+x264 [error]: malloc of size 11744448 failed
+[vost#0:0/libx264 @ 0000016b62bec140] [enc:libx264 @ 0000016b62b90540] Error submitting video frame to the encoder
+[vost#0:0/libx264 @ 0000016b62bec140] [enc:libx264 @ 0000016b62b90540] Error encoding a frame: Generic error in an external library
+[vost#0:0/libx264 @ 0000016b62bec140] Task finished with error code: -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000016b62bec140] Terminating thread with return code -542398533 (Generic error in an external library)
+[out#0/mp4 @ 0000016b62bc5280] video:13KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 6.452092%
+frame=    1 fps=0.0 q=29.0 Lsize=      14KiB time=-00:00:00.03 bitrate=N/A speed=N/A elapsed=0:00:00.31    
+[libx264 @ 0000016b62bec640] frame I:1     Avg QP:12.44  size: 12764
+[libx264 @ 0000016b62bec640] mb I  I16..4: 77.5% 20.4%  2.0%
+[libx264 @ 0000016b62bec640] 8x8 transform intra:20.4%
+[libx264 @ 0000016b62bec640] coded y,uvDC,uvAC intra: 3.0% 28.0% 2.2%
+[libx264 @ 0000016b62bec640] i16 v,h,dc,p: 92%  5%  2%  1%
+[libx264 @ 0000016b62bec640] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 75% 15%  9%  0%  0%  0%  0%  0%  0%
+[libx264 @ 0000016b62bec640] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 28%  9%  6%  4%  2%  3%  4%  6%
+[libx264 @ 0000016b62bec640] i8c dc,h,v,p: 72% 26%  2%  0%
+[libx264 @ 0000016b62bec640] kb/s:3063.36
+Conversion failed![0m
+[32m2026-10-02 01:58:03[0m | [31m[1mERROR[0m | "./app/services/task.py:267":[34m _mark_task_failed[0m - [31m[1mtask failed, task_id: db0b949e-6c6a-4d4d-a371-ace10add3d6f, stage: pipeline, error: RuntimeError: ffmpeg version 9.0-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.100 / 61.  1.100
+  libavcodec     63.  1.100 / 63.  1.100
+  libavformat    63.  1.100 / 63.  1.100
+  libavdevice    63.  1.100 / 63.  1.100
+  libavfilter    12.  1.100 / 12.  1.100
+  libswscale     10.  1.100 / 10.  1.100
+  libswresample   7.  1.100 /  7.  1.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000016b62be5240] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from '.\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\ffmpeg-concat-list.txt':
+  Duration: N/A, start: 0.000000, bitrate: 1240 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], 1240 kb/s, 30 fps, 30 tbr, 15360 tbn
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc61.19.100 h264_nvenc
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0000016b62bec640] using SAR=1/1
+[libx264 @ 0000016b62bec640] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000016b62bec640] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 0000016b62bec640] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '.\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\combined-1.mp4':
+  Metadata:
+    encoder         : Lavf63.1.100
+  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.100 libx264
+      handler_name    : VideoHandler
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+x264 [error]: malloc of size 11744448 failed
+[vost#0:0/libx264 @ 0000016b62bec140] [enc:libx264 @ 0000016b62b90540] Error submitting video frame to the encoder
+[vost#0:0/libx264 @ 0000016b62bec140] [enc:libx264 @ 0000016b62b90540] Error encoding a frame: Generic error in an external library
+[vost#0:0/libx264 @ 0000016b62bec140] Task finished with error code: -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000016b62bec140] Terminating thread with return code -542398533 (Generic error in an external library)
+[out#0/mp4 @ 0000016b62bc5280] video:13KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 6.452092%
+frame=    1 fps=0.0 q=29.0 Lsize=      14KiB time=-00:00:00.03 bitrate=N/A speed=N/A elapsed=0:00:00.31    
+[libx264 @ 0000016b62bec640] frame I:1     Avg QP:12.44  size: 12764
+[libx264 @ 0000016b62bec640] mb I  I16..4: 77.5% 20.4%  2.0%
+[libx264 @ 0000016b62bec640] 8x8 transform intra:20.4%
+[libx264 @ 0000016b62bec640] coded y,uvDC,uvAC intra: 3.0% 28.0% 2.2%
+[libx264 @ 0000016b62bec640] i16 v,h,dc,p: 92%  5%  2%  1%
+[libx264 @ 0000016b62bec640] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 75% 15%  9%  0%  0%  0%  0%  0%  0%
+[libx264 @ 0000016b62bec640] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 28%  9%  6%  4%  2%  3%  4%  6%
+[libx264 @ 0000016b62bec640] i8c dc,h,v,p: 72% 26%  2%  0%
+[libx264 @ 0000016b62bec640] kb/s:3063.36
+Conversion failed![0m
+[32m2026-10-02 01:58:03[0m | [31m[1mERROR[0m | "./cli.py:1759":[34m run_cli[0m - [31m[1mCLI task failed: task_id=db0b949e-6c6a-4d4d-a371-ace10add3d6f, stop_at=video, stage=pipeline, error=RuntimeError: ffmpeg version 9.0-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.100 / 61.  1.100
+  libavcodec     63.  1.100 / 63.  1.100
+  libavformat    63.  1.100 / 63.  1.100
+  libavdevice    63.  1.100 / 63.  1.100
+  libavfilter    12.  1.100 / 12.  1.100
+  libswscale     10.  1.100 / 10.  1.100
+  libswresample   7.  1.100 /  7.  1.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000016b62be5240] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from '.\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\ffmpeg-concat-list.txt':
+  Duration: N/A, start: 0.000000, bitrate: 1240 kb/s
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], 1240 kb/s, 30 fps, 30 tbr, 15360 tbn
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc61.19.100 h264_nvenc
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0000016b62bec640] using SAR=1/1
+[libx264 @ 0000016b62bec640] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000016b62bec640] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 0000016b62bec640] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '.\storage\tasks\db0b949e-6c6a-4d4d-a371-ace10add3d6f\combined-1.mp4':
+  Metadata:
+    encoder         : Lavf63.1.100
+  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.100 libx264
+      handler_name    : VideoHandler
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+x264 [error]: malloc of size 11744448 failed
+[vost#0:0/libx264 @ 0000016b62bec140] [enc:libx264 @ 0000016b62b90540] Error submitting video frame to the encoder
+[vost#0:0/libx264 @ 0000016b62bec140] [enc:libx264 @ 0000016b62b90540] Error encoding a frame: Generic error in an external library
+[vost#0:0/libx264 @ 0000016b62bec140] Task finished with error code: -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000016b62bec140] Terminating thread with return code -542398533 (Generic error in an external library)
+[out#0/mp4 @ 0000016b62bc5280] video:13KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 6.452092%
+frame=    1 fps=0.0 q=29.0 Lsize=      14KiB time=-00:00:00.03 bitrate=N/A speed=N/A elapsed=0:00:00.31    
+[libx264 @ 0000016b62bec640] frame I:1     Avg QP:12.44  size: 12764
+[libx264 @ 0000016b62bec640] mb I  I16..4: 77.5% 20.4%  2.0%
+[libx264 @ 0000016b62bec640] 8x8 transform intra:20.4%
+[libx264 @ 0000016b62bec640] coded y,uvDC,uvAC intra: 3.0% 28.0% 2.2%
+[libx264 @ 0000016b62bec640] i16 v,h,dc,p: 92%  5%  2%  1%
+[libx264 @ 0000016b62bec640] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 75% 15%  9%  0%  0%  0%  0%  0%  0%
+[libx264 @ 0000016b62bec640] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 28%  9%  6%  4%  2%  3%  4%  6%
+[libx264 @ 0000016b62bec640] i8c dc,h,v,p: 72% 26%  2%  0%
+[libx264 @ 0000016b62bec640] kb/s:3063.36
+Conversion failed![0m
+!!! SystemExit code=1
+!!! 上面的日志末尾就是退出前的最后输出；若未见任何错误日志，说明异常来自更底层
+WRAPPER_EXIT=1

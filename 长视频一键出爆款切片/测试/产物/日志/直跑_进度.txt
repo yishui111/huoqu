@@ -1,0 +1,6 @@
+01_环境与依赖 exit=1
+08_端到端_识别裁剪烧字幕 exit=1
+09_REST接口服务_api_server exit=1
+10_WebUI启动与关闭脚本 exit=1
+11_LLM选片_Ollama exit=1
+ALL_DONE

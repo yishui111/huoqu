@@ -1,0 +1,42 @@
+[32m2026-10-03 00:15:42[0m | [1mINFO[0m | "./cli.py:1740":[34m run_cli[0m - [1mstart CLI task: task_id=a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b, stop_at=video[0m
+[32m2026-10-03 00:15:42[0m | [1mINFO[0m | "./app/services/task.py:1387":[34m _run_pipeline[0m - [1mstart task: a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b, stop_at: video[0m
+[32m2026-10-03 00:15:43[0m | [1mINFO[0m | "./app/utils/utils.py:234":[34m check_ffmpeg_ready[0m - [1mffmpeg check passed, using: C:\Users\dapanji\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin\ffmpeg.EXE[0m
+[32m2026-10-03 00:15:43[0m | [1mINFO[0m | "./app/services/task.py:293":[34m generate_script[0m - [1m
+
+## generating video script[0m
+[32m2026-10-03 00:15:43[0m | [1mINFO[0m | "./app/services/task.py:503":[34m generate_audio[0m - [1m
+
+## generating audio[0m
+[32m2026-10-03 00:15:43[0m | [1mINFO[0m | "./app/services/task.py:531":[34m generate_audio[0m - [1mno custom audio file provided, using TTS to generate audio.[0m
+[32m2026-10-03 00:15:43[0m | [1mINFO[0m | "./app/services/voice.py:1328":[34m azure_tts_v1[0m - [1mstart, voice name: zh-CN-XiaoxiaoNeural, try: 1[0m
+[32m2026-10-03 00:15:49[0m | [1mINFO[0m | "./app/services/voice.py:1357":[34m azure_tts_v1[0m - [1mcompleted, output file: .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\audio.mp3[0m
+[32m2026-10-03 00:15:52[0m | [1mINFO[0m | "./app/services/task.py:588":[34m generate_subtitle[0m - [1m
+
+## generating subtitle[0m
+[32m2026-10-03 00:15:52[0m | [1mINFO[0m | "./app/services/task.py:594":[34m generate_subtitle[0m - [1m
+
+## generating subtitle, provider: edge[0m
+[32m2026-10-03 00:15:52[0m | [1mINFO[0m | "./app/services/voice.py:2876":[34m _write_subtitle_items[0m - [1mcompleted, subtitle file created: .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\subtitle.srt, duration: 33.4[0m
+[32m2026-10-03 00:15:52[0m | [1mINFO[0m | "./app/services/task.py:656":[34m get_video_materials[0m - [1m
+
+## preprocess local materials[0m
+[32m2026-10-03 00:15:53[0m | [1mINFO[0m | "./app/services/task.py:920":[34m generate_final_videos[0m - [1m
+
+## combining video: 1 => .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\combined-1.mp4[0m
+[32m2026-10-03 00:15:53[0m | [1mINFO[0m | "./app/services/video.py:766":[34m combine_videos[0m - [1maudio duration: 33.98 seconds[0m
+[32m2026-10-03 00:15:53[0m | [1mINFO[0m | "./app/services/video.py:767":[34m combine_videos[0m - [1mmaximum clip duration: 3 seconds[0m
+[32m2026-10-03 00:15:53[0m | [1mINFO[0m | "./app/services/video.py:769":[34m combine_videos[0m - [1mrequired video duration: 34.08 seconds (audio duration + 0.10s safety margin)[0m
+[32m2026-10-03 00:15:54[0m | [1mINFO[0m | "./app/services/video.py:262":[34m _prioritize_unique_source_clips[0m - [1mprioritized unique video materials, sources: 3, primary clips: 3, fallback clips: 9[0m
+[32m2026-10-03 00:16:50[0m | [1mINFO[0m | "./app/services/video.py:953":[34m combine_videos[0m - [1mstarting clip merging process[0m
+[32m2026-10-03 00:16:50[0m | [1mINFO[0m | "./app/services/video.py:959":[34m combine_videos[0m - [1mconcatenating 12 clips with ffmpeg[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:979":[34m combine_videos[0m - [1mvideo combining completed[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/task.py:954":[34m generate_final_videos[0m - [1mBatch material allocation: video_index=1, sources=3, reused_sources=0[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/task.py:999":[34m generate_final_videos[0m - [1m
+
+## generating video: 1 => .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\final-1.mp4[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:1227":[34m generate_video[0m - [1mgenerating video: 1080 x 1920[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:1228":[34m generate_video[0m - [1m  ① video: .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\combined-1.mp4[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:1229":[34m generate_video[0m - [1m  ② audio: .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\audio.mp3[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:1230":[34m generate_video[0m - [1m  ③ subtitle: .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\subtitle.srt[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:1231":[34m generate_video[0m - [1m  ④ output: .\storage\tasks\a39c1b26-17f0-49a1-acbd-acc0c2ee5a0b\final-1.mp4[0m
+[32m2026-10-03 00:16:53[0m | [1mINFO[0m | "./app/services/video.py:1251":[34m generate_video[0m - [1m  ⑤ font: G:/xmgousi/获取项目/短视频从零生成/resource/fonts/MicrosoftYaHeiBold.ttc[0m

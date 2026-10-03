@@ -1,0 +1,1087 @@
+[
+ {
+  "name": "test_01_环境与依赖",
+  "status": "CRASH",
+  "total": 0,
+  "failed": 0,
+  "seconds": 3633.0,
+  "cases": [],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_01_环境与依赖.log",
+  "exitcode": -9,
+  "crash_tail": "  [PASS] 核心依赖 / 可导入 librosa\n  [PASS] 核心依赖 / 可导入 soundfile\n  [PASS] 核心依赖 / 可导入 PIL\n  [PASS] 核心依赖 / 可导入 fastapi\n  [PASS] 核心依赖 / 可导入 uvicorn"
+ },
+ {
+  "name": "test_02_时间戳解析与文本匹配_trans_utils",
+  "status": "PASS",
+  "total": 42,
+  "failed": 0,
+  "seconds": 0.1,
+  "cases": [
+   [
+    "convert_time_to_millis",
+    "完整格式 HH:MM:SS,mmm",
+    true,
+    ""
+   ],
+   [
+    "convert_time_to_millis",
+    "时分秒无毫秒",
+    true,
+    ""
+   ],
+   [
+    "convert_time_to_millis",
+    "分秒格式 MM:SS",
+    true,
+    ""
+   ],
+   [
+    "convert_time_to_millis",
+    "点号毫秒（按上游口径毫秒位直接取数字）",
+    true,
+    ""
+   ],
+   [
+    "convert_time_to_millis",
+    "尾随分隔符按 MM:SS 口径、毫秒记 0（回归：曾 int('') 崩溃）",
+    true,
+    ""
+   ],
+   [
+    "pre_proc 文本预处理",
+    "中文逐字加空格",
+    true,
+    ""
+   ],
+   [
+    "pre_proc 文本预处理",
+    "标点被剔除",
+    true,
+    ""
+   ],
+   [
+    "pre_proc 文本预处理",
+    "空字符串不再 IndexError（回归：曾 res[-1] 崩溃）",
+    true,
+    ""
+   ],
+   [
+    "pre_proc 文本预处理",
+    "纯标点输入安全返回空",
+    true,
+    ""
+   ],
+   [
+    "pre_proc 文本预处理",
+    "ASCII 原样保留",
+    true,
+    ""
+   ],
+   [
+    "pre_proc 文本预处理",
+    "中英混排",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "连续输入命中（返回采样点）",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "带空格输入同样命中（回归：识别结果复制粘贴曾匹配失败）",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "未命中返回空",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "待查文本为空返回空",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "时间戳为空返回空",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "大小写不敏感",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "多次出现全部命中",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "目标文本不存在返回空",
+    true,
+    ""
+   ],
+   [
+    "proc 文本→时间戳匹配",
+    "命中但词数越界安全返回空",
+    true,
+    ""
+   ],
+   [
+    "proc_spk 说话人匹配",
+    "按说话人1取全部片段",
+    true,
+    ""
+   ],
+   [
+    "proc_spk 说话人匹配",
+    "按说话人0取片段",
+    true,
+    ""
+   ],
+   [
+    "proc_spk 说话人匹配",
+    "不存在的说话人返回空",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "严格方括号多行",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "无方括号",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "箭头连接符 -->",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "MM:SS 短格式",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "波浪线/至/到 连接符",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "点号毫秒",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "结束早于开始的片段被过滤",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "纯文本无时间戳返回空",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "空输入返回空",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "破折号连接符 —",
+    true,
+    ""
+   ],
+   [
+    "extract_timestamps 格式兼容",
+    "尾随逗号时间戳不崩溃（回归）",
+    true,
+    ""
+   ],
+   [
+    "convert_pcm_to_float",
+    "float64 原样返回",
+    true,
+    ""
+   ],
+   [
+    "convert_pcm_to_float",
+    "float32 升为 float64",
+    true,
+    ""
+   ],
+   [
+    "convert_pcm_to_float",
+    "int16 按位深归一化",
+    true,
+    ""
+   ],
+   [
+    "convert_pcm_to_float",
+    "int8 减去直流偏置",
+    true,
+    ""
+   ],
+   [
+    "convert_pcm_to_float",
+    "不支持的类型抛 ValueError",
+    true,
+    "ValueError"
+   ],
+   [
+    "write_state/load_state 往返",
+    "recog_res_raw 往返一致",
+    true,
+    ""
+   ],
+   [
+    "write_state/load_state 往返",
+    "timestamp 往返一致",
+    true,
+    ""
+   ],
+   [
+    "write_state/load_state 往返",
+    "sentences 往返一致",
+    true,
+    ""
+   ]
+  ],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_02_时间戳解析与文本匹配_trans_utils.log",
+  "exitcode": 0,
+  "crash_tail": "  [PASS] write_state/load_state 往返 / recog_res_raw 往返一致\n  [PASS] write_state/load_state 往返 / timestamp 往返一致\n  [PASS] write_state/load_state 往返 / sentences 往返一致\n\n== test_02_时间戳解析与文本匹配_trans_utils: 全部通过 42/42  用时 0s =="
+ },
+ {
+  "name": "test_03_字幕生成_subtitle_utils",
+  "status": "PASS",
+  "total": 34,
+  "failed": 0,
+  "seconds": 0.0,
+  "cases": [
+   [
+    "time_convert 毫秒转 SRT 时间",
+    "0",
+    true,
+    ""
+   ],
+   [
+    "time_convert 毫秒转 SRT 时间",
+    "1500",
+    true,
+    ""
+   ],
+   [
+    "time_convert 毫秒转 SRT 时间",
+    "59999",
+    true,
+    ""
+   ],
+   [
+    "time_convert 毫秒转 SRT 时间",
+    "61000",
+    true,
+    ""
+   ],
+   [
+    "time_convert 毫秒转 SRT 时间",
+    "3600000",
+    true,
+    ""
+   ],
+   [
+    "time_convert 毫秒转 SRT 时间",
+    "3661500",
+    true,
+    ""
+   ],
+   [
+    "str2list 分词",
+    "中文按字切分",
+    true,
+    ""
+   ],
+   [
+    "str2list 分词",
+    "英文按词切分",
+    true,
+    ""
+   ],
+   [
+    "str2list 分词",
+    "连字符词保持完整",
+    true,
+    ""
+   ],
+   [
+    "str2list 分词",
+    "中英混排（\\w 含中文，GPT 切片粘成一个词）",
+    true,
+    ""
+   ],
+   [
+    "Text2SRT 单条字幕",
+    "text 保留原文",
+    true,
+    ""
+   ],
+   [
+    "Text2SRT 单条字幕",
+    "start/end 毫秒",
+    true,
+    ""
+   ],
+   [
+    "Text2SRT 单条字幕",
+    "srt 三行结构",
+    true,
+    ""
+   ],
+   [
+    "Text2SRT 单条字幕",
+    "time(acc_ost) 叠加偏移",
+    true,
+    ""
+   ],
+   [
+    "Text2SRT 单条字幕",
+    "词列表拼接加空格",
+    true,
+    ""
+   ],
+   [
+    "Text2SRT 单条字幕",
+    "text 去尾部标点",
+    true,
+    ""
+   ],
+   [
+    "generate_srt 全文 SRT",
+    "带说话人标记 spk0",
+    true,
+    "1  spk0\n00:00:00,000 --> 00:00:01,000\n香蕉\n2\n00:00:02,000 --> "
+   ],
+   [
+    "generate_srt 全文 SRT",
+    "无说话人的普通序号",
+    true,
+    ""
+   ],
+   [
+    "generate_srt 全文 SRT",
+    "无时间戳的句子被跳过",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 整句包含",
+    "整句包含时只切到第1句",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 整句包含",
+    "字幕时间相对裁剪起点",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 整句包含",
+    "字幕文本",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 整句包含",
+    "序号从1开始且含时间轴",
+    true,
+    "1\n00:00:00,500 --> 00:00:03,000\n香蕉是浆果\n"
+   ],
+   [
+    "generate_srt_clip 跨句部分重叠",
+    "前句切尾+中句整句",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 跨句部分重叠",
+    "首条字幕从0开始",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 跨句部分重叠",
+    "次条字幕相对起点",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 跨句部分重叠",
+    "序号连续",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 两端截断",
+    "左截断中句+右截断末句",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 两端截断",
+    "截断后字幕时间",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 边界",
+    "窗口在句子之前返回空",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 边界",
+    "begin_index 顺延序号",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 边界",
+    "time_acc_ost 整体平移字幕时间",
+    true,
+    ""
+   ],
+   [
+    "generate_srt_clip 边界",
+    "返回的 cc 为下一个可用序号",
+    true,
+    ""
+   ],
+   [
+    "数据安全",
+    "传入的 sentence_list 保持传入时的引用独立",
+    true,
+    ""
+   ]
+  ],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_03_字幕生成_subtitle_utils.log",
+  "exitcode": 0,
+  "crash_tail": "  [PASS] generate_srt_clip 边界 / time_acc_ost 整体平移字幕时间\n  [PASS] generate_srt_clip 边界 / 返回的 cc 为下一个可用序号\n  [PASS] 数据安全 / 传入的 sentence_list 保持传入时的引用独立\n\n== test_03_字幕生成_subtitle_utils: 全部通过 34/34  用时 0s =="
+ },
+ {
+  "name": "test_04_字幕渲染_subtitle_renderer",
+  "status": "PASS",
+  "total": 17,
+  "failed": 0,
+  "seconds": 1.7,
+  "cases": [
+   [
+    "字体资源",
+    "内置中文字体存在",
+    true,
+    "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\font\\STHeitiMedium.ttc"
+   ],
+   [
+    "正常渲染",
+    "中文渲染尺寸为正",
+    true,
+    "228x34"
+   ],
+   [
+    "正常渲染",
+    "帧为 RGB 三通道（透明度走 mask）",
+    true,
+    ""
+   ],
+   [
+    "正常渲染",
+    "透明 mask 存在",
+    true,
+    ""
+   ],
+   [
+    "正常渲染",
+    "mask 值域 0~1",
+    true,
+    ""
+   ],
+   [
+    "正常渲染",
+    "文字有非透明像素",
+    true,
+    "非透明像素 2206"
+   ],
+   [
+    "正常渲染",
+    "文字颜色为白色",
+    true,
+    ""
+   ],
+   [
+    "正常渲染",
+    "英文数字渲染正常",
+    true,
+    ""
+   ],
+   [
+    "正常渲染",
+    "多行渲染更高",
+    true,
+    "(68, 68)"
+   ],
+   [
+    "正常渲染",
+    "颜色 black/green/red 可用",
+    true,
+    ""
+   ],
+   [
+    "参数校验",
+    "font_size=0 拒绝",
+    true,
+    "ValueError"
+   ],
+   [
+    "参数校验",
+    "font_size 为负拒绝",
+    true,
+    "ValueError"
+   ],
+   [
+    "参数校验",
+    "font_size 非整数拒绝",
+    true,
+    "ValueError"
+   ],
+   [
+    "参数校验",
+    "font_size 为布尔拒绝",
+    true,
+    "TypeError"
+   ],
+   [
+    "参数校验",
+    "未知颜色拒绝",
+    true,
+    "ValueError"
+   ],
+   [
+    "参数校验",
+    "字体文件缺失报 FileNotFoundError",
+    true,
+    "FileNotFoundError"
+   ],
+   [
+    "尺寸合理性",
+    "字号越大渲染越大",
+    true,
+    "64号=(74, 69) 16号=(20, 19)"
+   ]
+  ],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_04_字幕渲染_subtitle_renderer.log",
+  "exitcode": 0,
+  "crash_tail": "  [PASS] 参数校验 / 未知颜色拒绝\n  [PASS] 参数校验 / 字体文件缺失报 FileNotFoundError\n  [PASS] 尺寸合理性 / 字号越大渲染越大\n\n== test_04_字幕渲染_subtitle_renderer: 全部通过 17/17  用时 2s =="
+ },
+ {
+  "name": "test_05_识别结果规范化_videoclipper",
+  "status": "PASS",
+  "total": 31,
+  "failed": 0,
+  "seconds": 0.0,
+  "cases": [
+   [
+    "_is_valid_timestamp",
+    "空列表无效",
+    true,
+    ""
+   ],
+   [
+    "_is_valid_timestamp",
+    "None 无效",
+    true,
+    ""
+   ],
+   [
+    "_is_valid_timestamp",
+    "非列表无效",
+    true,
+    ""
+   ],
+   [
+    "_is_valid_timestamp",
+    "首元素 None 无效",
+    true,
+    ""
+   ],
+   [
+    "_is_valid_timestamp",
+    "尾元素 None 无效",
+    true,
+    ""
+   ],
+   [
+    "_is_valid_timestamp",
+    "正常时间戳有效",
+    true,
+    ""
+   ],
+   [
+    "_clean_recognition_text 清洗",
+    "None 转空串",
+    true,
+    ""
+   ],
+   [
+    "_clean_recognition_text 清洗",
+    "压缩连续空白",
+    true,
+    ""
+   ],
+   [
+    "_clean_recognition_text 清洗",
+    "剔除 SenseVoice 标记",
+    true,
+    ""
+   ],
+   [
+    "_clean_recognition_text 清洗",
+    "剥掉首尾弯引号",
+    true,
+    ""
+   ],
+   [
+    "_clean_recognition_text 清洗",
+    "普通文本原样",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "短句保持一条",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "短句文本被清洗",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "无效时间戳返回空",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "token 数与时间戳数不一致时保持一条",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "不一致时仍输出清洗文本",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "超时长句切成两条",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "第一条覆盖前四字（0~8000ms）",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "第二条覆盖后四字",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "超长 token 数切成两条",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "第一条 30 个 token",
+    true,
+    ""
+   ],
+   [
+    "_split_long_sentence 长句切分",
+    "第二条 5 个 token",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "text 原样",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "raw_text 缺省时回退 text",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "sentence_info 直接采用",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "无 sentence_info 时从全文+时间戳兜底",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "兜底结果带时间戳",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "完整 MOSS 输出 raw_text 归一为 text",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "截断的 MOSS 输出报 RuntimeError",
+    true,
+    "RuntimeError"
+   ],
+   [
+    "_normalize_recognition_result",
+    "MOSS 截断标记正则可命中",
+    true,
+    ""
+   ],
+   [
+    "_normalize_recognition_result",
+    "MOSS 结尾时间戳正则可命中",
+    true,
+    ""
+   ]
+  ],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_05_识别结果规范化_videoclipper.log",
+  "exitcode": 0,
+  "crash_tail": "  [PASS] _normalize_recognition_result / 截断的 MOSS 输出报 RuntimeError\n  [PASS] _normalize_recognition_result / MOSS 截断标记正则可命中\n  [PASS] _normalize_recognition_result / MOSS 结尾时间戳正则可命中\n\n== test_05_识别结果规范化_videoclipper: 全部通过 31/31  用时 0s =="
+ },
+ {
+  "name": "test_06_音频裁剪核心逻辑",
+  "status": "PASS",
+  "total": 21,
+  "failed": 0,
+  "seconds": 0.0,
+  "cases": [
+   [
+    "按文本裁剪",
+    "采样率保持 16000",
+    true,
+    ""
+   ],
+   [
+    "按文本裁剪",
+    "命中片段长度 = (3250-1200)ms × 16",
+    true,
+    ""
+   ],
+   [
+    "按文本裁剪",
+    "日志含 1 periods",
+    true,
+    "1 periods found in the speech: from 1.2 to 3.25"
+   ],
+   [
+    "按文本裁剪",
+    "切片字幕非空且含时间轴",
+    true,
+    "1\n00:00:00,000 --> 00:00:02,050\n香蕉其实是浆果\n"
+   ],
+   [
+    "带空格文本回归（从识别结果复制粘贴的场景）",
+    "带空格输入命中同样长度（回归：pre_proc 双空格曾导致永远匹配失败）",
+    true,
+    ""
+   ],
+   [
+    "未命中回退",
+    "未命中返回原始全长音频",
+    true,
+    ""
+   ],
+   [
+    "未命中回退",
+    "日志提示 No period",
+    true,
+    "No period found in the speech, return raw speech. You may check the recognition result and try other destination text."
+   ],
+   [
+    "多段 # 裁剪",
+    "两段拼接长度",
+    true,
+    ""
+   ],
+   [
+    "多段 # 裁剪",
+    "日志含 2 periods",
+    true,
+    "2 periods found in the speech: from 0.0 to 1.15, from 52800 to 80800"
+   ],
+   [
+    "偏移与告警",
+    "秒级偏移按 16 采样/毫秒叠加",
+    true,
+    ""
+   ],
+   [
+    "偏移与告警",
+    "方括号无法解析时给出告警",
+    true,
+    "1 periods found in the speech: from 1.2 to 1.75 (Bracket detected in dest_text but offset time matching failed)"
+   ],
+   [
+    "偏移与告警",
+    "告警时仍按原样裁剪",
+    true,
+    ""
+   ],
+   [
+    "起止偏移",
+    "start_ost=500ms 使片段缩短",
+    true,
+    ""
+   ],
+   [
+    "起止偏移",
+    "end_ost=1000ms 使片段加长",
+    true,
+    ""
+   ],
+   [
+    "说话人裁剪",
+    "按说话人1取片段长度",
+    true,
+    ""
+   ],
+   [
+    "说话人裁剪",
+    "说话人裁剪日志正常",
+    true,
+    "1 periods found in the speech: from 2.0 to 3.0"
+   ],
+   [
+    "空文本回归（曾 IndexError 崩溃）",
+    "空文本不崩溃且按未命中处理",
+    true,
+    "No period found in the speech, return raw speech. You may check the recognition result and try other destination text."
+   ],
+   [
+    "空文本回归（曾 IndexError 崩溃）",
+    "空文本返回全长音频",
+    true,
+    ""
+   ],
+   [
+    "空文本回归（曾 IndexError 崩溃）",
+    "空文本切片字幕为空",
+    true,
+    ""
+   ],
+   [
+    "输入清洗",
+    "带标点文本剔除标点后命中",
+    true,
+    ""
+   ],
+   [
+    "输入清洗",
+    "命中日志正常",
+    true,
+    "1 periods found in the speech: from 1.2 to 3.25"
+   ]
+  ],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_06_音频裁剪核心逻辑.log",
+  "exitcode": 0,
+  "crash_tail": "  [PASS] 空文本回归（曾 IndexError 崩溃） / 空文本切片字幕为空\n  [PASS] 输入清洗 / 带标点文本剔除标点后命中\n  [PASS] 输入清洗 / 命中日志正常\n\n== test_06_音频裁剪核心逻辑: 全部通过 21/21  用时 0s =="
+ },
+ {
+  "name": "test_07_测试素材与模型缓存",
+  "status": "PASS",
+  "total": 22,
+  "failed": 0,
+  "seconds": 0.7,
+  "cases": [
+   [
+    "测试视频素材",
+    "测试长视频1 存在",
+    true,
+    "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\test_videos\\测试长视频1-生活冷知识.mp4"
+   ],
+   [
+    "测试视频素材",
+    "测试长视频2 存在",
+    true,
+    "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\test_videos\\测试长视频2-健身干货.mp4"
+   ],
+   [
+    "测试视频素材",
+    "视频1 时长在 20~45 秒",
+    true,
+    "30.0s"
+   ],
+   [
+    "测试视频素材",
+    "视频1 有 1 路视频流",
+    true,
+    ""
+   ],
+   [
+    "测试视频素材",
+    "视频1 有 1 路音频流",
+    true,
+    ""
+   ],
+   [
+    "测试视频素材",
+    "视频1 分辨率 1280x720",
+    true,
+    "1280x720"
+   ],
+   [
+    "测试视频素材",
+    "视频1 视频编码 h264",
+    true,
+    "h264"
+   ],
+   [
+    "测试视频素材",
+    "视频1 音频编码 aac",
+    true,
+    "aac"
+   ],
+   [
+    "测试视频素材",
+    "视频2 时长在 20~45 秒",
+    true,
+    "27.2s"
+   ],
+   [
+    "测试视频素材",
+    "视频2 有 1 路视频流",
+    true,
+    ""
+   ],
+   [
+    "测试视频素材",
+    "视频2 有 1 路音频流",
+    true,
+    ""
+   ],
+   [
+    "测试视频素材",
+    "视频2 分辨率 1280x720",
+    true,
+    "1280x720"
+   ],
+   [
+    "测试视频素材",
+    "视频2 视频编码 h264",
+    true,
+    "h264"
+   ],
+   [
+    "测试视频素材",
+    "视频2 音频编码 aac",
+    true,
+    "aac"
+   ],
+   [
+    "识别模型缓存",
+    "model_cache 目录存在",
+    true,
+    ""
+   ],
+   [
+    "识别模型缓存",
+    "缓存体积 > 100MB（识别模型已就位，无需重新下载）",
+    true,
+    "1267MB / 42 个文件"
+   ],
+   [
+    "识别模型缓存",
+    "paraformer 识别模型目录存在",
+    true,
+    "['G:\\\\xmgousi\\\\获取项目\\\\长视频一键出爆款切片\\\\model_cache\\\\models\\\\iic--speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch', 'G:\\\\xmgousi\\\\获取项目\\\\长视频一键出爆款切片\\\\model_cache\\\\models\\\\iic--speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch\\\\snapshots']"
+   ],
+   [
+    "输出目录",
+    "output/ 目录存在",
+    true,
+    ""
+   ],
+   [
+    "输出目录",
+    "output_api/ 目录存在",
+    true,
+    ""
+   ],
+   [
+    "素材制作脚本",
+    "制作测试素材.py 位于 测试/ 目录",
+    true,
+    ""
+   ],
+   [
+    "素材制作脚本",
+    "素材脚本指向项目根 test_videos（脚本已移入 测试/）",
+    true,
+    ""
+   ],
+   [
+    "素材制作脚本",
+    "素材脚本包含两个测试视频定义",
+    true,
+    ""
+   ]
+  ],
+  "log": "G:\\xmgousi\\获取项目\\长视频一键出爆款切片\\测试\\产物\\日志\\test_07_测试素材与模型缓存.log",
+  "exitcode": 0,
+  "crash_tail": "  [PASS] 素材制作脚本 / 制作测试素材.py 位于 测试/ 目录\n  [PASS] 素材制作脚本 / 素材脚本指向项目根 test_videos（脚本已移入 测试/）\n  [PASS] 素材制作脚本 / 素材脚本包含两个测试视频定义\n\n== test_07_测试素材与模型缓存: 全部通过 22/22  用时 1s =="
+ }
+]

@@ -1,30 +1,60 @@
 # =====================================================================
-# 外层仓库只跟踪我自己写的脚本/文档/配置。
-# FunClip 与 MoneyPrinterTurbo 是上游 clone（各自带 .git 历史），
-# Fooocus 是上游源码，均不入库；只放行我写的启动脚本与说明。
+# 本仓库只提交我自己写的启动/接口/批量脚本、使用与接口文档、测试脚本与小体积测试产物。
+# 上游项目本体（Fooocus / MoneyPrinterTurbo / FunClip）、venv、模型缓存、
+# 运行存储与产物不入库，按各子项目使用说明部署。
 # =====================================================================
 
-# ---- 上游项目本体 ----
-FunClip/*
-!FunClip/启动FunClip.bat
-!FunClip/关闭FunClip.bat
-!FunClip/使用说明.md
-!FunClip/制作测试素材.py
-!FunClip/批量切片.py
-
-MoneyPrinterTurbo/*
-!MoneyPrinterTurbo/启动AI短视频工厂.bat
-!MoneyPrinterTurbo/关闭AI短视频工厂.bat
-!MoneyPrinterTurbo/使用说明.md
-!MoneyPrinterTurbo/测试批量出片.py
-!MoneyPrinterTurbo/测试文档.md
-
-# Fooocus 上游源码与运行产物；只跟踪工厂层的脚本
+# ---- 上游项目本体（体积大/含模型，统一不入库）----
+.git.上游备份/
+.github/
 AI绘画工厂/Fooocus/
-AI绘画工厂/批量运行日志.txt
+短视频从零生成/app/
+短视频从零生成/webui/
+短视频从零生成/docs/
+短视频从零生成/resource/
+短视频从零生成/main.py
+短视频从零生成/cli.py
+短视频从零生成/webui.sh
+短视频从零生成/README*.md
+短视频从零生成/README-en.md
+短视频从零生成/docker-compose*.yml
+短视频从零生成/Dockerfile*
+短视频从零生成/.python-version
+短视频从零生成/.dockerignore
+短视频从零生成/.gitignore
+短视频从零生成/.gitattributes
+短视频从零生成/LICENSE
+短视频从零生成/uv.lock
+长视频一键出爆款切片/funclip/
+长视频一键出爆款切片/docs/
+长视频一键出爆款切片/font/
+长视频一键出爆款切片/scripts/
+长视频一键出爆款切片/README*.md
+长视频一键出爆款切片/CONTRIBUTING.md
+长视频一键出爆款切片/LICENSE
+长视频一键出爆款切片/VERSION
 
-# 运行产物与测试产物
-测试/
-*.log
+# ---- 敏感配置（真实 key 只留本地；模板用 config.example.toml）----
+短视频从零生成/config.toml
+
+# ---- 环境与缓存 ----
+.venv/
+venv/
 __pycache__/
+*.pyc
+runtime/
+model_cache/
+hf_cache/
+pip_cache/
+.cache/
 .workbuddy-ai/
+
+# ---- 运行存储与产物（可重新生成）----
+storage/
+output/
+output_api/
+logs/
+*.log
+
+# ---- 测试产物里的大文件控制 ----
+短视频从零生成/测试/detached-out.log

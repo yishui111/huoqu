@@ -1,0 +1,72 @@
+[32m2026-09-27 00:28:24[0m | [1mINFO[0m | "./cli.py:1740":[34m run_cli[0m - [1mstart CLI task: task_id=a4caafd2-2332-443b-a863-62c4f61a42ca, stop_at=video[0m
+[32m2026-09-27 00:28:24[0m | [1mINFO[0m | "./app/services/task.py:1387":[34m _run_pipeline[0m - [1mstart task: a4caafd2-2332-443b-a863-62c4f61a42ca, stop_at: video[0m
+[32m2026-09-27 00:28:24[0m | [1mINFO[0m | "./app/utils/utils.py:234":[34m check_ffmpeg_ready[0m - [1mffmpeg check passed, using: C:\Users\dapanji\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin\ffmpeg.EXE[0m
+[32m2026-09-27 00:28:24[0m | [1mINFO[0m | "./app/services/task.py:293":[34m generate_script[0m - [1m
+
+## generating video script[0m
+[32m2026-09-27 00:28:24[0m | [1mINFO[0m | "./app/services/llm.py:759":[34m generate_script[0m - [1mgenerating video script: subject=为什么猫咪总在半夜突然跑酷？3个冷知识让你笑出声, paragraph_number=1, has_custom_prompt=False, has_custom_system_prompt=False[0m
+[32m2026-09-27 00:28:24[0m | [1mINFO[0m | "./app/services/llm.py:270":[34m _generate_response[0m - [1mllm provider: ollama[0m
+[32m2026-09-27 00:28:33[0m | [32m[1mSUCCESS[0m | "./app/services/llm.py:812":[34m generate_script[0m - [32m[1mcompleted: 
+猫咪在半夜突然跑酷可能是因为它们的天性喜欢追逐和游戏。猫是夜行性动物，能够在夜晚更加敏锐地捕捉到老鼠等猎物。此外，研究发现猫咪在午夜前后分泌的催激情素水平最高，这可能会驱动它们更加活跃和活泼的游戏行为。所以，无论你有多困，猫咪在半夜的突然跑酷都是为了释放天性的快乐。[0m
+[32m2026-09-27 00:28:33[0m | [1mINFO[0m | "./app/services/task.py:503":[34m generate_audio[0m - [1m
+
+## generating audio[0m
+[32m2026-09-27 00:28:33[0m | [1mINFO[0m | "./app/services/task.py:531":[34m generate_audio[0m - [1mno custom audio file provided, using TTS to generate audio.[0m
+[32m2026-09-27 00:28:33[0m | [1mINFO[0m | "./app/services/voice.py:1328":[34m azure_tts_v1[0m - [1mstart, voice name: zh-CN-XiaoxiaoNeural, try: 1[0m
+[32m2026-09-27 00:28:36[0m | [1mINFO[0m | "./app/services/voice.py:1357":[34m azure_tts_v1[0m - [1mcompleted, output file: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\audio.mp3[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/task.py:588":[34m generate_subtitle[0m - [1m
+
+## generating subtitle[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/task.py:594":[34m generate_subtitle[0m - [1m
+
+## generating subtitle, provider: edge[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/voice.py:2876":[34m _write_subtitle_items[0m - [1mcompleted, subtitle file created: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\subtitle.srt, duration: 27.9[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/task.py:656":[34m get_video_materials[0m - [1m
+
+## preprocess local materials[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/task.py:920":[34m generate_final_videos[0m - [1m
+
+## combining video: 1 => .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\combined-1.mp4[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/video.py:766":[34m combine_videos[0m - [1maudio duration: 28.49 seconds[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/video.py:767":[34m combine_videos[0m - [1mmaximum clip duration: 3 seconds[0m
+[32m2026-09-27 00:28:37[0m | [1mINFO[0m | "./app/services/video.py:769":[34m combine_videos[0m - [1mrequired video duration: 28.59 seconds (audio duration + 0.10s safety margin)[0m
+[32m2026-09-27 00:28:38[0m | [1mINFO[0m | "./app/services/video.py:262":[34m _prioritize_unique_source_clips[0m - [1mprioritized unique video materials, sources: 3, primary clips: 3, fallback clips: 9[0m
+[32m2026-09-27 00:29:10[0m | [1mINFO[0m | "./app/services/video.py:953":[34m combine_videos[0m - [1mstarting clip merging process[0m
+[32m2026-09-27 00:29:10[0m | [1mINFO[0m | "./app/services/video.py:959":[34m combine_videos[0m - [1mconcatenating 10 clips with ffmpeg[0m
+[32m2026-09-27 00:29:12[0m | [1mINFO[0m | "./app/services/video.py:979":[34m combine_videos[0m - [1mvideo combining completed[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/task.py:954":[34m generate_final_videos[0m - [1mBatch material allocation: video_index=1, sources=3, reused_sources=0[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/task.py:999":[34m generate_final_videos[0m - [1m
+
+## generating video: 1 => .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\final-1.mp4[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/video.py:1227":[34m generate_video[0m - [1mgenerating video: 1080 x 1920[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/video.py:1228":[34m generate_video[0m - [1m  ① video: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\combined-1.mp4[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/video.py:1229":[34m generate_video[0m - [1m  ② audio: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\audio.mp3[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/video.py:1230":[34m generate_video[0m - [1m  ③ subtitle: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\subtitle.srt[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/video.py:1231":[34m generate_video[0m - [1m  ④ output: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\final-1.mp4[0m
+[32m2026-09-27 00:29:13[0m | [1mINFO[0m | "./app/services/video.py:1251":[34m generate_video[0m - [1m  ⑤ font: G:/xmgousi/获取项目/MoneyPrinterTurbo/resource/fonts/STHeitiMedium.ttc[0m
+[32m2026-09-27 00:30:40[0m | [1mINFO[0m | "./app/services/task.py:920":[34m generate_final_videos[0m - [1m
+
+## combining video: 2 => .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\combined-2.mp4[0m
+[32m2026-09-27 00:30:42[0m | [1mINFO[0m | "./app/services/video.py:766":[34m combine_videos[0m - [1maudio duration: 28.49 seconds[0m
+[32m2026-09-27 00:30:42[0m | [1mINFO[0m | "./app/services/video.py:767":[34m combine_videos[0m - [1mmaximum clip duration: 3 seconds[0m
+[32m2026-09-27 00:30:42[0m | [1mINFO[0m | "./app/services/video.py:769":[34m combine_videos[0m - [1mrequired video duration: 28.59 seconds (audio duration + 0.10s safety margin)[0m
+[32m2026-09-27 00:30:43[0m | [1mINFO[0m | "./app/services/video.py:262":[34m _prioritize_unique_source_clips[0m - [1mprioritized unique video materials, sources: 3, primary clips: 3, fallback clips: 9[0m
+[32m2026-09-27 00:31:19[0m | [1mINFO[0m | "./app/services/video.py:953":[34m combine_videos[0m - [1mstarting clip merging process[0m
+[32m2026-09-27 00:31:19[0m | [1mINFO[0m | "./app/services/video.py:959":[34m combine_videos[0m - [1mconcatenating 10 clips with ffmpeg[0m
+[32m2026-09-27 00:31:22[0m | [1mINFO[0m | "./app/services/video.py:979":[34m combine_videos[0m - [1mvideo combining completed[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/task.py:954":[34m generate_final_videos[0m - [1mBatch material allocation: video_index=2, sources=3, reused_sources=3[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/task.py:999":[34m generate_final_videos[0m - [1m
+
+## generating video: 2 => .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\final-2.mp4[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/video.py:1227":[34m generate_video[0m - [1mgenerating video: 1080 x 1920[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/video.py:1228":[34m generate_video[0m - [1m  ① video: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\combined-2.mp4[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/video.py:1229":[34m generate_video[0m - [1m  ② audio: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\audio.mp3[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/video.py:1230":[34m generate_video[0m - [1m  ③ subtitle: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\subtitle.srt[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/video.py:1231":[34m generate_video[0m - [1m  ④ output: .\storage\tasks\a4caafd2-2332-443b-a863-62c4f61a42ca\final-2.mp4[0m
+[32m2026-09-27 00:31:23[0m | [1mINFO[0m | "./app/services/video.py:1251":[34m generate_video[0m - [1m  ⑤ font: G:/xmgousi/获取项目/MoneyPrinterTurbo/resource/fonts/STHeitiMedium.ttc[0m
+[32m2026-09-27 00:32:52[0m | [32m[1mSUCCESS[0m | "./app/services/task.py:1639":[34m _run_pipeline[0m - [32m[1mtask a4caafd2-2332-443b-a863-62c4f61a42ca finished, generated 2 videos.[0m
+{"task_id": "a4caafd2-2332-443b-a863-62c4f61a42ca", "result": {"videos": ["G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\tasks\\a4caafd2-2332-443b-a863-62c4f61a42ca\\final-1.mp4", "G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\tasks\\a4caafd2-2332-443b-a863-62c4f61a42ca\\final-2.mp4"], "combined_videos": ["G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\tasks\\a4caafd2-2332-443b-a863-62c4f61a42ca\\combined-1.mp4", "G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\tasks\\a4caafd2-2332-443b-a863-62c4f61a42ca\\combined-2.mp4"], "script": "猫咪在半夜突然跑酷可能是因为它们的天性喜欢追逐和游戏。猫是夜行性动物，能够在夜晚更加敏锐地捕捉到老鼠等猎物。此外，研究发现猫咪在午夜前后分泌的催激情素水平最高，这可能会驱动它们更加活跃和活泼的游戏行为。所以，无论你有多困，猫咪在半夜的突然跑酷都是为了释放天性的快乐。", "terms": "", "audio_file": "G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\tasks\\a4caafd2-2332-443b-a863-62c4f61a42ca\\audio.mp3", "audio_duration": 29, "subtitle_path": "G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\tasks\\a4caafd2-2332-443b-a863-62c4f61a42ca\\subtitle.srt", "materials": ["G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\local_videos\\素材A.mp4", "G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\local_videos\\素材B.mp4", "G:\\xmgousi\\获取项目\\MoneyPrinterTurbo\\storage\\local_videos\\素材C.mp4"], "cross_post_state": null, "cross_post_results": null, "cross_post_error": null, "cross_post_owner": null, "warnings": [{"code": "batch_materials_reused", "video_index": 2, "count": 3}]}}
+
+===== STDERR =====
+[32m2026-09-27 00:27:52.420[0m | [1mINFO    [0m | [36mapp.config.config[0m:[36mload_config[0m:[36m471[0m - [1mload config from file: G:\xmgousi\获取项目\MoneyPrinterTurbo/config.toml[0m
+[32m2026-09-27 00:27:52.426[0m | [1mINFO    [0m | [36mapp.config.config[0m:[36m<module>[0m:[36m592[0m - [1mMoneyPrinterTurbo v1.3.7[0m

@@ -26,7 +26,8 @@ SYSTEM_PROMPT = ("你是一个视频srt字幕分析剪辑器，输入视频的sr
                  "时间戳必须保留方括号、使用单条短横线“-”连接，"
                  "例如 [00:00:02,290-00:00:07,400]，不要使用 --> 或其他符号")
 USER_HEAD = "这是待裁剪的视频srt字幕："
-LLM_MODEL = "ollama/qwen2.5:3b"
+# 本机 Ollama 已拉取的模型（qwen2.5:3b 未安装，选片会 404，勿改回）
+LLM_MODEL = "ollama/qwen2.5:7b-16k"
 
 
 def main():
@@ -34,21 +35,16 @@ def main():
     from videoclipper import VideoClipper
     from llm.litellm_api import litellm_call
     from utils.trans_utils import extract_timestamps
+    from model_selection import create_asr_model
 
     videos = sorted(glob.glob(os.path.join(ROOT, "test_videos", "*.mp4")))
     if not videos:
-        print("test_videos 下没有视频，请先运行 制作测试素材.py")
+        print("test_videos 下没有视频，请先运行 测试/制作测试素材.py")
         sys.exit(1)
 
     print("正在加载本地识别模型（首次会自动下载，约1.5GB）…")
     t0 = time.time()
-    asr = AutoModel(
-        model="iic/speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
-        vad_model="damo/speech_fsmn_vad_zh-cn-16k-common-pytorch",
-        punc_model="damo/punc_ct-transformer_zh-cn-common-vocab272727-pytorch",
-        spk_model="damo/speech_campplus_sv_zh-cn_16k-common",
-        disable_update=True,
-    )
+    asr = create_asr_model("paraformer", "zh", AutoModel)
     clipper = VideoClipper(asr)
     clipper.lang = "zh"
     print(f"模型就绪，耗时 {time.time()-t0:.0f} 秒")

@@ -1,0 +1,2 @@
+[32m2026-10-03 00:14:10.743[0m | [1mINFO    [0m | [36mapp.config.config[0m:[36mload_config[0m:[36m471[0m - [1mload config from file: G:\xmgousi\获取项目\短视频从零生成/config.toml[0m
+[32m2026-10-03 00:14:10.898[0m | [1mINFO    [0m | [36mapp.config.config[0m:[36m<module>[0m:[36m592[0m - [1mMoneyPrinterTurbo v1.3.7[0m
